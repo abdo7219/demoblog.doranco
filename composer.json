@@ -94,6 +94,9 @@
         ],
         "post-update-cmd": [
             "@auto-scripts"
+        ],
+        "compile": [
+            "php bin/console doctrine:migrate --no-interaction"
         ]
     },
     "conflict": {
