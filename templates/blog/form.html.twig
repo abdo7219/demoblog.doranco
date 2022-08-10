@@ -1,0 +1,58 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+
+<h1>
+{% if editMode %}
+     modification de l'article
+{% else %}
+    Création d'un article
+{% endif %}
+</h1>
+
+{#{{ form(formArticle) }} #}
+{# form() permet d efficher un formulaire entier #}
+
+{{ form_start(formArticle, {
+    attr: {
+    novalidate: 'novalidate'
+    }
+})}}
+
+{# novalidate c'est un mot clé #}
+{# novalidate: novalidate permet de désactiver la validation html automatique #}
+
+{# form_start() & form_end()permettent de délimiter un formulaire modifier des champs ou modéfiers la méthode #}
+
+{# form_widget() permet de gérer l'affichage#}
+
+{#form_row permet de gérer l'affichage d'un chaps et de son label#}
+
+
+{# form_row() permet de gérer l'affichage d'un champ et de son label #}
+
+{{ form_row(formArticle.title, {
+    label: "Titre",
+    attr: {
+        placeholder: "Titre de l'article"
+    }
+}) }}
+{{ form_row(formArticle.content, {
+    label:"contenu",
+    attr: {
+        placeholder: "contenu de l'article"
+    }
+}) }}
+{{ form_row(formArticle.image)}}
+
+<button type="submit" class="btn btn-primary mt-2">
+{% if editMode %}
+    Enregistrer les modification
+{% else %}
+    Ajouter l'article
+{% endif %}
+</button>
+
+{{ form_end(formArticle)}}
+
+{% endblock %}

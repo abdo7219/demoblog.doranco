@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello BlogController!{% endblock %}
+
+{% block body %}
+{% for message in app.flashes('success') %}
+
+    <div class="alert alert-success text-center">{{ message }}</div>
+
+{% endfor %}
+
+{# app est un objet twig global qui contient beaucoup de données (session, flash, request ....#}
+
+<section class="row articles">
+
+{% for article in tabArticles %}
+
+
+    <article class="col-md-4 mx-auto text-center border border-dark mb-3 p-3 mt-3 mr-1">
+        <h2>{{ article.title }}</h2>
+        <div class="metadata">Ecrit le {{ article.createdAt|date("d/m/Y à H:i:s") }} dans la catégorie Politique</div>
+        <div class="content">
+            <img src="{{ article.image }}" alt="">
+            <p>{{ article.content|raw }}</p>
+            <a href="{{ path('blog_show', {id:article.id}) }}" class="btn btn-primary">Lire la suite</a>
+        </div>
+    </article>
+</section>
+
+{% endfor %}
+
+{% endblock %}

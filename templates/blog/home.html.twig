@@ -1,0 +1,34 @@
+{% extends "base.html.twig" %}
+
+{# lors de l'héritage, le contenu doit ce trouver dans des blocks #}
+{% block title %}Accueil{% endblock %}
+
+
+{% block body %}
+<p>Bonjour</p>
+
+<p>{{ title }}</p>
+
+<p>Vous avez {{ age }} ans</p>
+
+{% if age>= 18 %}
+<p>Vous êtes majeur</p>
+{% else %}
+<p>Vous êtes mineur</p>
+{% endif %}
+
+
+
+{% set city = 'Paris' %}
+{% if city starts with 'P' %}
+<p>Vous habitez à {{ city }}</p>
+{% endif %}
+
+{% if city ends with 'e' %}
+<p>Le nom de la ville finit par un 'e'</p>
+{% else %}
+<p>Le nom de la ville ne finit pas par un 'e'</p>
+{% endif %}
+
+
+{% endblock %}
