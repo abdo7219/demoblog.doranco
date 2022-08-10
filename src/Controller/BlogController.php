@@ -75,7 +75,7 @@ class BlogController extends AbstractController
         // handleRequest() permet d'insérer les données du formulaire dans l'objet $article
         // elle permet aussi de faire des vérifs sur formulaires(quelle est la méthode? est ce que les champs sont tous rempli ? etc)
         
-        dump($article);
+        //dump($article);
 
 if($form->isSubmitted() && $form->isValid())
 {
